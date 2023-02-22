@@ -68,12 +68,12 @@ namespace MusicApp.ViewModel
         {
             return new ObservableCollection<Music>
             {
-                new Music { Title = "Beach Walk", Artist = "Unicorn Heads", Url = "https://cdn.drivemusic.me/dl/online/XfSgE-N4Z0eXUZTk42Bdxw/1676340648/download_music/2014/05/nico-vinz-am-i-wrong.mp3", CoverImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRU6FVly4jMTD3AKB_sHxqPofJVQwqqUj5peEvgA1H4XegM3uJ7&usqp=CAU", IsRecent = true},
-                new Music { Title = "I'll Follow You", Artist = "Density & Time", Url = "https://cdn.drivemusic.me/dl/online/XfSgE-N4Z0eXUZTk42Bdxw/1676340648/download_music/2014/05/nico-vinz-am-i-wrong.mp3", CoverImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRm-su97lHFGZrbR6BkgL32qbzZBj2f3gKGrFR0Pn66ih01SyGj&usqp=CAU"},
-                new Music { Title = "Ancient", Artist = "Density & Time", Url = "https://devcrux.com/wp-content/uploads/Ancient.mp3"},
-                new Music { Title = "News Room News", Artist = "Spence", Url = "https://devcrux.com/wp-content/uploads/Cats_Searching_for_the_Truth.mp3"},
-                new Music { Title = "Bro Time", Artist = "Nat Keefe & BeatMowe", Url = "https://devcrux.com/wp-content/uploads/Bro_Time.mp3"},
-                new Music { Title = "Cats Searching for the Truth", Artist = "Nat Keefe & Hot Buttered Rum", Url = "https://devcrux.com/wp-content/uploads/Cats_Searching_for_the_Truth.mp3"}
+                new Music { Title = "m1", Artist = "hh", Url = "https://vgmsite.com/soundtracks/genshin-impact-gamerip/oabwzmjqpm/001.mp3", IsRecent = true },
+                new Music { Title = "m2", Artist = "hh", Url = "https://www.ocf.berkeley.edu/~acowen/Verified_Normed/aRiJNS8Oz6E_130.mp3" },
+                new Music { Title = "m3", Artist = "hh", Url = "https://www.ocf.berkeley.edu/~acowen/Verified_Normed/nHRqTSgKJGg_2193.mp3" },
+                new Music { Title = "m4", Artist = "hh", Url = "https://www.ocf.berkeley.edu/~acowen/Verified_Normed/QEjgPh4SEmU_11.mp3" },
+                new Music { Title = "m5", Artist = "hh", Url = "https://www.ocf.berkeley.edu/~acowen/Verified_Normed/t4H_Zoh7G5A_202.mp3" },
+                new Music { Title = "m6", Artist = "hh", Url = "https://www.ocf.berkeley.edu/~acowen/Verified_Normed/mbgWjujwvwo_10.mp3" }
             };
         }
     }
