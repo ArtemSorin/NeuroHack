@@ -1,9 +1,11 @@
 ﻿using MediaManager;
 using MusicApp.Model;
+using NeuroHack;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
