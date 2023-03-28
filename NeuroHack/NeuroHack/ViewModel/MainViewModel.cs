@@ -1,4 +1,5 @@
 ﻿using MusicApp.Model;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -66,15 +67,27 @@ namespace MusicApp.ViewModel
 
         private ObservableCollection<Music> GetMusics()
         {
-            return new ObservableCollection<Music>
+            ObservableCollection<Music> result = new ObservableCollection<Music>();
+
+            var connection = new MySqlConnection("Server=myServerAddress;Database=myDataBase;Uid=myUsername;Pwd=myPassword;");
+            connection.Open();
+
+            var command = connection.CreateCommand();
+            command.CommandText = "SELECT id, name FROM fooBar WHERE deleted = 0";
+
+            var reader = command.ExecuteReader();
+            while (reader.Read())
             {
-                new Music { Title = "Music play", Artist = "hh", Url = "https://vgmsite.com/soundtracks/genshin-impact-gamerip/oabwzmjqpm/001.mp3", IsRecent = true },
-                new Music { Title = "autor autor", Artist = "hh", Url = "https://www.ocf.berkeley.edu/~acowen/Verified_Normed/aRiJNS8Oz6E_130.mp3" },
-                new Music { Title = "m3", Artist = "hh", Url = "https://www.ocf.berkeley.edu/~acowen/Verified_Normed/nHRqTSgKJGg_2193.mp3" },
-                new Music { Title = "m4", Artist = "hh", Url = "https://www.ocf.berkeley.edu/~acowen/Verified_Normed/QEjgPh4SEmU_11.mp3" },
-                new Music { Title = "m5", Artist = "hh", Url = "https://www.ocf.berkeley.edu/~acowen/Verified_Normed/t4H_Zoh7G5A_202.mp3" },
-                new Music { Title = "m6", Artist = "hh", Url = "https://www.ocf.berkeley.edu/~acowen/Verified_Normed/mbgWjujwvwo_10.mp3" }
-            };
+                result.Add(new Music
+                {
+                    //Title = reader.GetUInt64("id"),
+                    //Artist = reader.GetString("name"),
+                    Url = reader.GetString("url"),  
+                });
+
+            }
+
+            return result;
         }
     }
 }
