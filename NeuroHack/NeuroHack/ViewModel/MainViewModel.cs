@@ -1,5 +1,5 @@
 ﻿using MusicApp.Model;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -68,25 +68,25 @@ namespace MusicApp.ViewModel
         private ObservableCollection<Music> GetMusics()
         {
             ObservableCollection<Music> result = new ObservableCollection<Music>();
-
-            var connection = new MySqlConnection("Server=myServerAddress;Database=myDataBase;Uid=myUsername;Pwd=myPassword;");
+            
+            var connection = new MySqlConnection("Server='31.31.196.209';Database='u1962034_project.neurohacking';User Id='u1962034_project';Password='bitoWL84';");
             connection.Open();
 
             var command = connection.CreateCommand();
-            command.CommandText = "SELECT id, name FROM fooBar WHERE deleted = 0";
+            command.CommandText = "SELECT * " +
+                "FROM music";
 
             var reader = command.ExecuteReader();
             while (reader.Read())
             {
                 result.Add(new Music
                 {
-                    //Title = reader.GetUInt64("id"),
-                    //Artist = reader.GetString("name"),
-                    Url = reader.GetString("url"),  
+                    Title = reader.GetString("Song"),
+                    Artist = reader.GetString("Band"),
+                    Url = reader.GetString("Link"),  
                 });
-
             }
-
+            
             return result;
         }
     }
