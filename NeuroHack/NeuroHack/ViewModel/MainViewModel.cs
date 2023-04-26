@@ -58,9 +58,10 @@ namespace MusicApp.ViewModel
 
         public ICommand MusicSettings => new Command(MusicParams);
 
-        private async void MusicParams()
+        private void MusicParams()
         {
             var popup = new MessageBox();
+
             App.Current.MainPage.Navigation.ShowPopup(popup);
         }
 
@@ -69,7 +70,7 @@ namespace MusicApp.ViewModel
             if (selectedMusic != null)
             {
                 var viewModel = new PlayerViewModel(selectedMusic, musicList);
-                var playerPage = new NeuroHack.PlayerPage { BindingContext = viewModel };
+                var playerPage = new PlayerPage { BindingContext = viewModel };
 
                 var navigation = Application.Current.MainPage as NavigationPage;
                 await navigation.PushAsync(playerPage, true);
@@ -87,7 +88,7 @@ namespace MusicApp.ViewModel
 
             var command = connection.CreateCommand();
             command.CommandText = "SELECT * " +
-                "FROM music";
+                "FROM music WHERE Beatyful = 100";
 
             var reader = command.ExecuteReader();
             while (reader.Read())
@@ -100,6 +101,33 @@ namespace MusicApp.ViewModel
                 });
             }
             
+            return result;
+        }
+
+        private ObservableCollection<Music> GetMusics1()
+        {
+            ObservableCollection<Music> result = new ObservableCollection<Music>();
+
+            result.Add(new Music { Title = "m1", Artist = "hh", Url = "https://vgmsite.com/soundtracks/genshin-impact-gamerip/oabwzmjqpm/001.mp3", IsRecent = true });
+
+            var connection = new MySqlConnection("Server='31.31.196.209';Database='u1962034_project.neurohacking';User Id='u1962034_project';Password='bitoWL84';");
+            connection.Open();
+
+            var command = connection.CreateCommand();
+            command.CommandText = "SELECT * " +
+                "FROM music";
+
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                result.Add(new Music
+                {
+                    Title = reader.GetString("Song"),
+                    Artist = reader.GetString("Band"),
+                    Url = reader.GetString("Link"),
+                });
+            }
+
             return result;
         }
     }
