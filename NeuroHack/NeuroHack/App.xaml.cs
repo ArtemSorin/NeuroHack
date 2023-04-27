@@ -8,8 +8,6 @@ namespace NeuroHack
     {
         public App ()
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Njg1OTAzQDMyMzAyZTMyMmUzMGtEVStWSGpjMWVBY1FIOEVudjFLVVkyb3VBL3BzSC9mSG55ZER4Wm80ZXc9");
-
             InitializeComponent();
 
             MainPage = new NavigationPage(new MainPage());

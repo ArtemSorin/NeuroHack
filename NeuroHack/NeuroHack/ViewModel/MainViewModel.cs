@@ -58,9 +58,10 @@ namespace MusicApp.ViewModel
 
         public ICommand MusicSettings => new Command(MusicParams);
 
-        private async void MusicParams()
+        private void MusicParams()
         {
             var popup = new MessageBox();
+
             App.Current.MainPage.Navigation.ShowPopup(popup);
         }
 
@@ -69,7 +70,7 @@ namespace MusicApp.ViewModel
             if (selectedMusic != null)
             {
                 var viewModel = new PlayerViewModel(selectedMusic, musicList);
-                var playerPage = new NeuroHack.PlayerPage { BindingContext = viewModel };
+                var playerPage = new PlayerPage { BindingContext = viewModel };
 
                 var navigation = Application.Current.MainPage as NavigationPage;
                 await navigation.PushAsync(playerPage, true);
@@ -85,9 +86,12 @@ namespace MusicApp.ViewModel
             var connection = new MySqlConnection("Server='31.31.196.209';Database='u1962034_project.neurohacking';User Id='u1962034_project';Password='bitoWL84';");
             connection.Open();
 
+            Random r = new Random();
+            int rInt = r.Next(0, 100);
+
             var command = connection.CreateCommand();
             command.CommandText = "SELECT * " +
-                "FROM music";
+                $"FROM music WHERE Beatyful = {rInt} OR Amusing = {rInt} OR Dreamy = {rInt} OR Annoying = {rInt}";
 
             var reader = command.ExecuteReader();
             while (reader.Read())

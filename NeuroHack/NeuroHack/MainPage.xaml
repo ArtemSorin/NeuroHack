@@ -7,11 +7,9 @@
              xmlns:vm="clr-namespace:MusicApp.ViewModel"
              mc:Ignorable="d" NavigationPage.HasNavigationBar="False"
              x:Class="NeuroHack.MainPage">
-
     <ContentPage.BindingContext>
         <vm:MainViewModel/>
     </ContentPage.BindingContext>
-
     <pv:PancakeView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#280d9f">
         <Grid RowSpacing="30" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <Grid.RowDefinitions>
@@ -40,7 +38,7 @@
             <Frame Grid.Row="1" BackgroundColor="#3e20b6" CornerRadius="100" Margin="0, 0, -100, -100"></Frame>
             <Frame Grid.Row="1" CornerRadius="100" Margin="0, 50, -100, -100">
                 <ScrollView>
-                    <CollectionView ItemsSource="{Binding MusicList}" HorizontalOptions="FillAndExpand" Margin="20, 30, 100, 0"
+                    <CollectionView x:Name="MusicCollection" ItemsSource="{Binding MusicList}" HorizontalOptions="FillAndExpand" Margin="20, 30, 100, 0"
                             SelectionMode="Single" SelectedItem="{Binding SelectedMusic}" SelectionChangedCommand="{Binding SelectionCommand}">
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout Orientation="Vertical" ItemSpacing="1"/>
@@ -67,6 +65,4 @@
             </Frame>
         </Grid>
     </pv:PancakeView>
-
 </ContentPage>
-
