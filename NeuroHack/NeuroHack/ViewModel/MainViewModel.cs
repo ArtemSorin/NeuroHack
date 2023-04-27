@@ -86,9 +86,12 @@ namespace MusicApp.ViewModel
             var connection = new MySqlConnection("Server='31.31.196.209';Database='u1962034_project.neurohacking';User Id='u1962034_project';Password='bitoWL84';");
             connection.Open();
 
+            Random r = new Random();
+            int rInt = r.Next(0, 100);
+
             var command = connection.CreateCommand();
             command.CommandText = "SELECT * " +
-                "FROM music WHERE Beatyful = 100";
+                $"FROM music WHERE Beatyful = {rInt} OR Amusing = {rInt} OR Dreamy = {rInt} OR Annoying = {rInt}";
 
             var reader = command.ExecuteReader();
             while (reader.Read())
@@ -101,33 +104,6 @@ namespace MusicApp.ViewModel
                 });
             }
             
-            return result;
-        }
-
-        private ObservableCollection<Music> GetMusics1()
-        {
-            ObservableCollection<Music> result = new ObservableCollection<Music>();
-
-            result.Add(new Music { Title = "m1", Artist = "hh", Url = "https://vgmsite.com/soundtracks/genshin-impact-gamerip/oabwzmjqpm/001.mp3", IsRecent = true });
-
-            var connection = new MySqlConnection("Server='31.31.196.209';Database='u1962034_project.neurohacking';User Id='u1962034_project';Password='bitoWL84';");
-            connection.Open();
-
-            var command = connection.CreateCommand();
-            command.CommandText = "SELECT * " +
-                "FROM music";
-
-            var reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                result.Add(new Music
-                {
-                    Title = reader.GetString("Song"),
-                    Artist = reader.GetString("Band"),
-                    Url = reader.GetString("Link"),
-                });
-            }
-
             return result;
         }
     }

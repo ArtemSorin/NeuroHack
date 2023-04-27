@@ -144,12 +144,23 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\back.png" />
-    <BundleResource Include="Resources\banner.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\next.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\pause.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\play.png" />
-    <BundleResource Include="Resources\playBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\share.png" />
   </ItemGroup>
 </Project>
