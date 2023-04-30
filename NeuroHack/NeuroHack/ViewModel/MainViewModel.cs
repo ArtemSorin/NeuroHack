@@ -81,8 +81,8 @@ namespace MusicApp.ViewModel
         {
             ObservableCollection<Music> result = new ObservableCollection<Music>();
 
-            result.Add(new Music { Title = "m1", Artist = "hh", Url = "https://vgmsite.com/soundtracks/genshin-impact-gamerip/oabwzmjqpm/001.mp3", IsRecent = true });
-            
+            result.Add(new Music { Title = "Dragonspine Battle Theme", Artist = "Genshin Impact OST", Url = "https://storage1.lightaudio.ru/3992bd9c/35ec4dd1/Dragonspine%20Battle%20Theme%20%E2%80%94%20Genshin%20Impact%20OST.m3u8", IsRecent = true });
+
             var connection = new MySqlConnection("Server='31.31.196.209';Database='u1962034_project.neurohacking';User Id='u1962034_project';Password='bitoWL84';");
             connection.Open();
 
@@ -91,7 +91,7 @@ namespace MusicApp.ViewModel
 
             var command = connection.CreateCommand();
             command.CommandText = "SELECT * " +
-                $"FROM music WHERE Beatyful = {rInt} OR Amusing = {rInt} OR Dreamy = {rInt} OR Annoying = {rInt}";
+                $"FROM music WHERE Beatyful = {rInt}";
 
             var reader = command.ExecuteReader();
             while (reader.Read())

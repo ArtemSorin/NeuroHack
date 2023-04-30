@@ -10,7 +10,7 @@
     <ContentPage.BindingContext>
         <vm:MainViewModel/>
     </ContentPage.BindingContext>
-    <pv:PancakeView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#280d9f">
+    <pv:PancakeView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#6e62e4">
         <Grid RowSpacing="30" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -23,19 +23,19 @@
                             <ColumnDefinition Width="60"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <pv:PancakeView Grid.Column="0" HeightRequest="40" WidthRequest="40" CornerRadius="50" BackgroundColor="#3e20b6">
+                        <pv:PancakeView Grid.Column="0" HeightRequest="40" WidthRequest="40" CornerRadius="50" BackgroundColor="#6a87e2">
                             <pv:PancakeView.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding MusicSettings}"/>
                             </pv:PancakeView.GestureRecognizers>
                             <Image Source="settings.png" HeightRequest="15" WidthRequest="15" HorizontalOptions="Center" VerticalOptions="Center"/>
                         </pv:PancakeView>
-                        <Frame Grid.Column="1" BackgroundColor="#3e20b6" Margin="0, 0, -100, 0" HeightRequest="20" CornerRadius="50"></Frame>
+                        <Frame Grid.Column="1" BackgroundColor="#6a87e2" Margin="0, 0, -100, 0" HeightRequest="20" CornerRadius="50"></Frame>
                     </Grid>
-                    <Label Text="{Binding RecentMusic.Title}" TextColor="White" HorizontalOptions="End" FontAttributes="Bold" FontSize="37"/>
-                    <Label Text="{Binding RecentMusic.Artist}" TextColor="White" HorizontalOptions="End" FontAttributes="Bold" FontSize="22" Opacity="0.8"/>
+                    <Label Text="{Binding RecentMusic.Title}" TextColor="White" HorizontalTextAlignment="End" HorizontalOptions="End" FontAttributes="Bold" FontSize="30"/>
+                    <Label Text="{Binding RecentMusic.Artist}" TextColor="White" HorizontalTextAlignment="End" HorizontalOptions="End" FontAttributes="Bold" FontSize="20" Opacity="0.8"/>
                 </StackLayout>
             </StackLayout>
-            <Frame Grid.Row="1" BackgroundColor="#3e20b6" CornerRadius="100" Margin="0, 0, -100, -100"></Frame>
+            <Frame Grid.Row="1" BackgroundColor="#6a87e2" CornerRadius="100" Margin="0, 0, -100, -100"></Frame>
             <Frame Grid.Row="1" CornerRadius="100" Margin="0, 50, -100, -100">
                 <ScrollView>
                     <CollectionView x:Name="MusicCollection" ItemsSource="{Binding MusicList}" HorizontalOptions="FillAndExpand" Margin="20, 30, 100, 0"
