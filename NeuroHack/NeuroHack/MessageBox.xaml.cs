@@ -11,16 +11,28 @@ using Xamarin.Forms.Xaml;
 
 namespace NeuroHack
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MessageBox : Popup
     {
         public MessageBox()
         {
             InitializeComponent();
             double[] mas = new double[10];
+
+            mas[0] = SliderAmusing.LowerValue;
+            mas[1] = SliderAmusing.UpperValue;
+
+            mas[2] = SliderBeatyful.LowerValue;
+            mas[3] = SliderBeatyful.UpperValue;
+
+            mas[4] = SliderDreamy.LowerValue;
+            mas[5] = SliderDreamy.UpperValue;
+
+            mas[6] = SliderAnnoying.LowerValue;
+            mas[7] = SliderAnnoying.UpperValue;
+
             FilterButton.Clicked += (sender, e) => BuildingPlayList(out mas);
         }
-        private void BuildingPlayList(out double[] mas)
+        public void BuildingPlayList(out double[] mas)
         {
             mas = new double[10];
 
@@ -36,12 +48,7 @@ namespace NeuroHack
             mas[6] = SliderAnnoying.LowerValue;
             mas[7] = SliderAnnoying.UpperValue;
 
-            var viewModel = new MainViewModel();
-            var playerPage = new MainPage { BindingContext = viewModel };
-
-            Navigation.PushAsync(playerPage);
-
-            Dismiss("");
+            Dismiss(mas);
         }
     }
 }

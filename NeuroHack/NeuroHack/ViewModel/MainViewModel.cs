@@ -17,7 +17,13 @@ namespace MusicApp.ViewModel
     {
         public MainViewModel()
         {
-            musicList = GetMusics();
+            double[] mas = new double[10];
+            musicList = GetMusics(mas);
+            recentMusic = musicList.Where(x => x.IsRecent == true).FirstOrDefault();
+        }
+        public MainViewModel(double[] mas)
+        {
+            musicList = GetMusics(mas);
             recentMusic = musicList.Where(x => x.IsRecent == true).FirstOrDefault();
         }
 
@@ -58,11 +64,17 @@ namespace MusicApp.ViewModel
 
         public ICommand MusicSettings => new Command(MusicParams);
 
-        private void MusicParams()
+        private async void MusicParams()
         {
-            var popup = new MessageBox();
+            var popupPage = new MessageBox() {  };
 
-            App.Current.MainPage.Navigation.ShowPopup(popup);
+            double[] a = (double[])await App.Current.MainPage.Navigation.ShowPopupAsync(new MessageBox());
+
+            var viewModel = new MainViewModel(a);
+            var mainPage = new MainPage { BindingContext = viewModel };
+
+            var navigation = Application.Current.MainPage as NavigationPage;
+            await navigation.PushAsync(mainPage, true);
         }
 
         private async void PlayMusic()
@@ -77,7 +89,7 @@ namespace MusicApp.ViewModel
             }
         }
 
-        private ObservableCollection<Music> GetMusics()
+        private ObservableCollection<Music> GetMusics(double[] mas)
         {
             ObservableCollection<Music> result = new ObservableCollection<Music>();
 
@@ -91,7 +103,7 @@ namespace MusicApp.ViewModel
 
             var command = connection.CreateCommand();
             command.CommandText = "SELECT * " +
-                $"FROM music WHERE Beatyful = {rInt}";
+                $"FROM music WHERE Beatyful = {mas[0]}";
 
             var reader = command.ExecuteReader();
             while (reader.Read())

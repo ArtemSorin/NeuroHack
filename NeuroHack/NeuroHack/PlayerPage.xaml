@@ -6,7 +6,6 @@
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d" NavigationPage.HasNavigationBar="False"
              x:Class="NeuroHack.PlayerPage">
-
     <pv:PancakeView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#10041f">
         <StackLayout>
             <Grid Margin="20">
