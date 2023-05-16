@@ -17,8 +17,8 @@
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <StackLayout>
-                <StackLayout Margin="40,0,40,0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-                    <Grid Margin="0, 40, 0, 40">
+                <StackLayout Margin="40, 0, 40, 0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                    <Grid Margin="0, 40, -40, 40">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="60"/>
                             <ColumnDefinition Width="*"/>
@@ -29,7 +29,7 @@
                             </pv:PancakeView.GestureRecognizers>
                             <Image Source="settings.png" HeightRequest="15" WidthRequest="15" HorizontalOptions="Center" VerticalOptions="Center"/>
                         </pv:PancakeView>
-                        <Frame Grid.Column="1" BackgroundColor="#6a87e2" Margin="0, 0, -100, 0" HeightRequest="20" CornerRadius="50"></Frame>
+                        <Frame Grid.Column="1" HasShadow="False" BorderColor="Transparent" BackgroundColor="#6a87e2" Margin="0, 0, -100, 0" HeightRequest="20" CornerRadius="50"></Frame>
                     </Grid>
                     <Label Text="{Binding RecentMusic.Title}" TextColor="White" HorizontalTextAlignment="End" HorizontalOptions="End" FontAttributes="Bold" FontSize="30"/>
                     <Label Text="{Binding RecentMusic.Artist}" TextColor="White" HorizontalTextAlignment="End" HorizontalOptions="End" FontAttributes="Bold" FontSize="20" Opacity="0.8"/>
@@ -38,7 +38,7 @@
             <Frame Grid.Row="1" BackgroundColor="#6a87e2" CornerRadius="100" Margin="0, 0, -100, -100"></Frame>
             <Frame Grid.Row="1" CornerRadius="100" Margin="0, 50, -100, -100">
                 <ScrollView>
-                    <CollectionView x:Name="MusicCollection" ItemsSource="{Binding MusicList}" HorizontalOptions="FillAndExpand" Margin="20, 30, 100, 0"
+                    <CollectionView ItemsSource="{Binding MusicList}" HorizontalOptions="FillAndExpand" Margin="20, 30, 100, 0"
                             SelectionMode="Single" SelectedItem="{Binding SelectedMusic}" SelectionChangedCommand="{Binding SelectionCommand}">
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout Orientation="Vertical" ItemSpacing="1"/>

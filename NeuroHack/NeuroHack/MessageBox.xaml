@@ -9,19 +9,18 @@
             <StackLayout>
                 <Label Text="Amusing"></Label>
                 <xct:RangeSlider x:Name="SliderAmusing" Margin="0, 5, 0, 0" TrackColor="White" MinimumValue="0" 
-                             MaximumValue="100" StepValue="1" TrackHighlightColor="#6e62e4"></xct:RangeSlider>
+                                 MaximumValue="100" StepValue="1" TrackHighlightColor="#6e62e4"></xct:RangeSlider>
                 <Label Text="Beatyful"></Label>
                 <xct:RangeSlider x:Name="SliderBeatyful" Margin="0, 5, 0, 0" TrackColor="White" MinimumValue="0" 
-                        MaximumValue="100" StepValue="1" TrackHighlightColor="#6e62e4"></xct:RangeSlider>
+                                 MaximumValue="100" StepValue="1" TrackHighlightColor="#6e62e4"></xct:RangeSlider>
                 <Label Text="Dreamy"></Label>
                 <xct:RangeSlider x:Name="SliderDreamy" Margin="0, 5, 0, 0" TrackColor="White" MinimumValue="0" 
-                        MaximumValue="100" StepValue="1" TrackHighlightColor="#6e62e4"></xct:RangeSlider>
+                                 MaximumValue="100" StepValue="1" TrackHighlightColor="#6e62e4"></xct:RangeSlider>
                 <Label Text="Annoying"></Label>
                 <xct:RangeSlider x:Name="SliderAnnoying" Margin="0, 5, 0, 0" TrackColor="White" MinimumValue="0" 
-                        MaximumValue="100" StepValue="1" TrackHighlightColor="#6e62e4"></xct:RangeSlider>
-                <Button x:Name="FilterButton" Text="Применить" BorderColor="Transparent" BackgroundColor="#6e62e4" TextColor="White"
-                    FontAttributes="Bold" CornerRadius="20" Margin="0, 20, 0, 0">
-                </Button>
+                                 MaximumValue="100" StepValue="1" TrackHighlightColor="#6e62e4"></xct:RangeSlider>
+                <Button x:Name="FilterButton" Text="Применить" BorderColor="Transparent" BackgroundColor="#6e62e4" 
+                        TextColor="White" FontAttributes="Bold" CornerRadius="20" Margin="0, 20, 0, 0"></Button>
             </StackLayout>
         </Frame>
     </StackLayout>

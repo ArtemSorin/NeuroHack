@@ -40,13 +40,13 @@
                     <StackLayout Grid.Row="1" Spacing="25" HorizontalOptions="Center" VerticalOptions="Center">
                         <pv:PancakeView BackgroundColor="White" HeightRequest="170" WidthRequest="170" CornerRadius="85" HorizontalOptions="Center" VerticalOptions="Center" >
                             <pv:PancakeView BackgroundColor="Gray" HeightRequest="150" WidthRequest="150" CornerRadius="75" HorizontalOptions="Center" VerticalOptions="Center">
-                                <Image x:Name="image" Source="{Binding SelectedMusic.CoverImage}" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Image Source="{Binding SelectedMusic.CoverImage}" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </pv:PancakeView>
                         </pv:PancakeView>
                         <StackLayout HorizontalOptions="Center">
                             <StackLayout>
-                                <Label Text="{Binding SelectedMusic.Title}" TextColor="Black" FontSize="25" HorizontalOptions="Center"/>
-                                <Label Text="{Binding SelectedMusic.Artist}" TextColor="Black" FontSize="15" Opacity="0.5" HorizontalOptions="Center"/>
+                                <Label Text="{Binding SelectedMusic.Title}" HorizontalTextAlignment="Center" TextColor="Black" FontSize="25" HorizontalOptions="Center"/>
+                                <Label Text="{Binding SelectedMusic.Artist}" HorizontalTextAlignment="Center" TextColor="Black" FontSize="15" Opacity="0.5" HorizontalOptions="Center"/>
                             </StackLayout>
                         </StackLayout>
                     </StackLayout>

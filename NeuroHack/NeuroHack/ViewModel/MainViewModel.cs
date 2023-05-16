@@ -17,7 +17,7 @@ namespace MusicApp.ViewModel
     {
         public MainViewModel()
         {
-            double[] mas = new double[10];
+            double[] mas = new double[10] { 0, 100, 0, 100, 0, 100, 0, 100, 0, 100 };
             musicList = GetMusics(mas);
             recentMusic = musicList.Where(x => x.IsRecent == true).FirstOrDefault();
         }
@@ -66,11 +66,9 @@ namespace MusicApp.ViewModel
 
         private async void MusicParams()
         {
-            var popupPage = new MessageBox() {  };
+            double[] result = (double[])await App.Current.MainPage.Navigation.ShowPopupAsync(new MessageBox());
 
-            double[] a = (double[])await App.Current.MainPage.Navigation.ShowPopupAsync(new MessageBox());
-
-            var viewModel = new MainViewModel(a);
+            var viewModel = new MainViewModel(result);
             var mainPage = new MainPage { BindingContext = viewModel };
 
             var navigation = Application.Current.MainPage as NavigationPage;
@@ -98,12 +96,9 @@ namespace MusicApp.ViewModel
             var connection = new MySqlConnection("Server='31.31.196.209';Database='u1962034_project.neurohacking';User Id='u1962034_project';Password='bitoWL84';");
             connection.Open();
 
-            Random r = new Random();
-            int rInt = r.Next(0, 100);
-
             var command = connection.CreateCommand();
             command.CommandText = "SELECT * " +
-                $"FROM music WHERE Beatyful = {mas[0]}";
+                $"FROM music WHERE Amusing >= {mas[0]} AND Amusing <= {mas[1]} AND Beatyful >= {mas[2]} AND Beatyful <= {mas[3]} AND Dreamy >= {mas[4]} AND Dreamy <= {mas[5]} AND Annoying >= {mas[6]} AND Annoying <= {mas[7]}";
 
             var reader = command.ExecuteReader();
             while (reader.Read())
